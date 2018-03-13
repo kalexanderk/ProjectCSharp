@@ -1,0 +1,9 @@
+C:\ProjectVS\Question5\Question5\bin\Debug\Question5.exe.config
+C:\ProjectVS\Question5\Question5\obj\Debug\Question5.Form1.resources
+C:\ProjectVS\Question5\Question5\obj\Debug\Question5.Properties.Resources.resources
+C:\ProjectVS\Question5\Question5\obj\Debug\Question5.csproj.GenerateResource.Cache
+C:\ProjectVS\Question5\Question5\bin\Debug\Question5.exe
+C:\ProjectVS\Question5\Question5\bin\Debug\Question5.pdb
+C:\ProjectVS\Question5\Question5\obj\Debug\Question5.exe
+C:\ProjectVS\Question5\Question5\obj\Debug\Question5.pdb
+C:\ProjectVS\Question5\Question5\obj\Debug\Question5.csprojResolveAssemblyReference.cache

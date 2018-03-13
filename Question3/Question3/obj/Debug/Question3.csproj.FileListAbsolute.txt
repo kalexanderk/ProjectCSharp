@@ -1,0 +1,6 @@
+C:\ProjectVS\Question3\Question3\bin\Debug\Question3.exe.config
+C:\ProjectVS\Question3\Question3\bin\Debug\Question3.exe
+C:\ProjectVS\Question3\Question3\bin\Debug\Question3.pdb
+C:\ProjectVS\Question3\Question3\obj\Debug\Question3.csprojResolveAssemblyReference.cache
+C:\ProjectVS\Question3\Question3\obj\Debug\Question3.exe
+C:\ProjectVS\Question3\Question3\obj\Debug\Question3.pdb

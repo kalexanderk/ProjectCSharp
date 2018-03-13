@@ -1,0 +1,293 @@
+{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fnil\fcharset0 Consolas;}{\f1\fnil Consolas;}}
+{\colortbl ;\red0\green0\blue255;\red255\green255\blue255;\red0\green0\blue0;\red0\green128\blue0;\red43\green145\blue175;\red163\green21\blue21;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\highlight2\lang1033\f0\fs19\par
+\fs40 OUTPUT:\lang9\f1\fs19\par
+       #1\par
+    Input coordinates of A\par
+    x: 0\par
+    y: 1\par
+    Input coordinates of B\par
+    x: 2\par
+    y: 0\par
+    Input coordinates of C\par
+    x: 0\par
+    y: -1\par
+    Input coordinates of D\par
+    x: -2\par
+    y: 0\par
+    This is a rhombus.\par
+    The area is: 4\par
+\par
+    #2\par
+    Input coordinates of A\par
+    x: 0\par
+    y: 1\par
+    Input coordinates of B\par
+    x: 1\par
+    y: 0\par
+    Input coordinates of C\par
+    x: 0\par
+    y: -1\par
+    Input coordinates of D\par
+    x: -1\par
+    y: 0\par
+    This is a square.\par
+    The area is: 2\par
+\par
+    #3\par
+    Input coordinates of A\par
+    x: 0\par
+    y: 1\par
+    Input coordinates of B\par
+    x: 0\par
+    y: 3\par
+    Input coordinates of C\par
+    x: 5\par
+    y: 0\par
+    Input coordinates of D\par
+    x: -1\par
+    y: 0\par
+    This is a quadrangle.\par
+    The area is: 8\par
+\par
+    #4\par
+    Input coordinates of A\par
+    x: 0\par
+    y: 0\par
+    Input coordinates of B\par
+    x: 1\par
+    y: 3\par
+    Input coordinates of C\par
+    x: 4\par
+    y: 3\par
+    Input coordinates of D\par
+    x: 5\par
+    y: 0\par
+    This is a trapezoid.\par
+    The area is: 12\par
+\cf3\lang1033\f0\par
+\cf0\fs40 Code:\par
+\cf1\f1\fs19 using\cf3  System;\par
+\cf1 using\cf3  System.Collections.Generic;\par
+\cf1 using\cf3  System.Linq;\par
+\cf1 using\cf3  System.Text;\par
+\cf1 using\cf3  System.Threading.Tasks;\par
+\par
+\par
+\cf1 namespace\cf3  Question1\par
+\{\par
+\cf4 //----------------------------------------------------------------------------------------------------------\cf3\par
+    \par
+    \cf1 class\cf3  \cf5 Point\cf3\par
+    \{\par
+        \cf1 public\cf3  \cf1 double\cf3  X \{ \cf1 get\cf3 ; \cf1 set\cf3 ; \}\par
+        \cf1 public\cf3  \cf1 double\cf3  Y \{ \cf1 get\cf3 ; \cf1 set\cf3 ; \}\par
+        \cf1 public\cf3  Point(\cf1 double\cf3  x, \cf1 double\cf3  y)\par
+        \{\par
+            \cf1 this\cf3 .X = x;\par
+            \cf1 this\cf3 .Y = y;\par
+        \}\par
+    \}\par
+\par
+\cf4 //----------------------------------------------------------------------------------------------------------\cf3\par
+   \par
+    \cf1 class\cf3  \cf5 Quadrangle\cf3\par
+    \{\par
+        \cf1 private\cf3  \cf5 Point\cf3  A, B, C, D;\par
+        \cf4 //additional variables for easier implementation\cf3\par
+        \cf1 private\cf3  \cf5 Point\cf3  AD, AB, BC, CD;\par
+        \cf1 private\cf3  \cf1 double\cf3  ABlen, BClen, CDlen, DAlen;\par
+        \cf4 //--------------------\cf3\par
+        \cf1 public\cf3  Quadrangle()\par
+        \{\par
+\par
+            \cf1 double\cf3  x = 0, y = 0; \cf1 bool\cf3  checkval; \cf1 string\cf3 [] list_n = \cf1 new\cf3  \cf1 string\cf3 [4] \{ \cf6 "A"\cf3 , \cf6 "B"\cf3 , \cf6 "C"\cf3 , \cf6 "D"\cf3  \};\par
+\par
+            \cf1 for\cf3  (\cf1 int\cf3  i = 0; i < 4; i++)\par
+            \{\par
+                \cf5 Console\cf3 .WriteLine(\cf6 "    Input coordinates of "\cf3 +list_n[i]);\par
+                \cf1 do\cf3\par
+                \{\par
+                    \cf5 Console\cf3 .Write(\cf6 "    x: "\cf3 );\par
+                    \cf1 try\cf3\par
+                    \{\par
+                        x = \cf5 Convert\cf3 .ToDouble(\cf5 Console\cf3 .ReadLine());\par
+                        checkval = \cf1 true\cf3 ;\par
+                    \}\par
+                    \cf1 catch\cf3  (\cf5 Exception\cf3  e)\par
+                    \{\par
+                        \cf5 Console\cf3 .WriteLine(\cf6 "    Please, input x again."\cf3 );\par
+                        checkval = \cf1 false\cf3 ;\par
+                    \}\par
+                \} \cf1 while\cf3  (checkval == \cf1 false\cf3 );\par
+                \cf1 do\cf3\par
+                \{\par
+                    \cf5 Console\cf3 .Write(\cf6 "    y: "\cf3 );\par
+                    \cf1 try\cf3\par
+                    \{\par
+                        y = \cf5 Convert\cf3 .ToDouble(\cf5 Console\cf3 .ReadLine());\par
+                        checkval = \cf1 true\cf3 ;\par
+                    \}\par
+                    \cf1 catch\cf3  (\cf5 Exception\cf3  e)\par
+                    \{\par
+                        \cf5 Console\cf3 .WriteLine(\cf6 "    Please, input y again."\cf3 );\par
+                        checkval = \cf1 false\cf3 ;\par
+                    \}\par
+                \} \cf1 while\cf3  (checkval == \cf1 false\cf3 );\par
+\par
+                \cf1 switch\cf3  (i)\par
+                \{\par
+                    \cf1 case\cf3  0: \cf1 this\cf3 .A = \cf1 new\cf3  \cf5 Point\cf3 (x, y); \cf1 break\cf3 ;\par
+                    \cf1 case\cf3  1: \cf1 this\cf3 .B = \cf1 new\cf3  \cf5 Point\cf3 (x, y); \cf1 break\cf3 ;\par
+                    \cf1 case\cf3  2: \cf1 this\cf3 .C = \cf1 new\cf3  \cf5 Point\cf3 (x, y); \cf1 break\cf3 ;\par
+                    \cf1 case\cf3  3: \cf1 this\cf3 .D = \cf1 new\cf3  \cf5 Point\cf3 (x, y); \cf1 break\cf3 ;\par
+                \}\par
+                \par
+            \}\par
+            \cf1 this\cf3 .AD = \cf1 new\cf3  \cf5 Point\cf3 (D.X - A.X, D.Y - A.Y);\par
+            \cf1 this\cf3 .AB = \cf1 new\cf3  \cf5 Point\cf3 (B.X - A.X, B.Y - A.Y);\par
+            \cf1 this\cf3 .BC = \cf1 new\cf3  \cf5 Point\cf3 (C.X - B.X, C.Y - B.Y);\par
+            \cf1 this\cf3 .CD = \cf1 new\cf3  \cf5 Point\cf3 (D.X - C.X, D.Y - C.Y);\par
+            \cf1 this\cf3 .ABlen = \cf5 Math\cf3 .Sqrt(\cf5 Math\cf3 .Pow(AB.X, 2) + \cf5 Math\cf3 .Pow(AB.Y, 2));\par
+            \cf1 this\cf3 .DAlen = \cf5 Math\cf3 .Sqrt(\cf5 Math\cf3 .Pow(AD.X, 2) + \cf5 Math\cf3 .Pow(AD.Y, 2));\par
+            \cf1 this\cf3 .BClen = \cf5 Math\cf3 .Sqrt(\cf5 Math\cf3 .Pow(BC.X, 2) + \cf5 Math\cf3 .Pow(BC.Y, 2));\par
+            \cf1 this\cf3 .CDlen = \cf5 Math\cf3 .Sqrt(\cf5 Math\cf3 .Pow(CD.X, 2) + \cf5 Math\cf3 .Pow(CD.Y, 2));\par
+        \}\par
+        \cf4 //--------------------\cf3\par
+        \cf1 private\cf3  \cf1 double\cf3  AnglesQ(\cf5 Point\cf3  poi)\par
+        \{\par
+            \cf4 //for angleA\cf3\par
+            \cf1 if\cf3  (poi == \cf1 this\cf3 .A)\par
+            \{\par
+                \cf1 return\cf3  \cf5 Math\cf3 .Acos((AB.X * AD.X + AB.Y * AD.Y) / (\cf1 this\cf3 .ABlen * \cf1 this\cf3 .DAlen));\par
+            \}\par
+            \cf4 //for angleB\cf3\par
+            \cf1 else\cf3  \cf1 if\cf3  (poi == \cf1 this\cf3 .B)\par
+            \{\par
+                \cf1 return\cf3  \cf5 Math\cf3 .Acos(((-AB.X) * BC.X + (-AB.Y) * BC.Y) / (\cf1 this\cf3 .ABlen * \cf1 this\cf3 .BClen));\par
+            \}\par
+            \cf4 //for angleC\cf3\par
+            \cf1 else\cf3  \cf1 if\cf3  (poi == \cf1 this\cf3 .C)\par
+            \{\par
+                \cf1 return\cf3  \cf5 Math\cf3 .Acos(((-BC.X) * CD.X + (-BC.Y) * CD.Y) / (\cf1 this\cf3 .BClen * \cf1 this\cf3 .CDlen));\par
+            \}\par
+            \cf4 //for angleD\cf3\par
+            \cf1 else\cf3  \cf1 if\cf3  (poi == \cf1 this\cf3 .D)\par
+            \{\par
+                \cf1 return\cf3  \cf5 Math\cf3 .Acos(((-AD.X) * (-CD.X) + (-AD.Y) * (-CD.Y)) / (\cf1 this\cf3 .CDlen * \cf1 this\cf3 .DAlen));\par
+            \}\par
+            \cf1 else\cf3  \cf1 return\cf3  0;\par
+        \}\par
+        \cf4 //--------------------\cf3\par
+        \cf1 public\cf3  \cf1 bool\cf3  IsTrapezoid()\par
+        \{\par
+            \cf1 if\cf3  ((\cf1 this\cf3 .ABlen*\cf1 this\cf3 .CDlen==\cf5 Math\cf3 .Abs(\cf1 this\cf3 .AB.X*\cf1 this\cf3 .CD.X+\cf1 this\cf3 .AB.Y*\cf1 this\cf3 .CD.Y)) && (\cf1 this\cf3 .ABlen != \cf1 this\cf3 .CDlen) &&\par
+                ((AnglesQ(A)>=\cf5 Math\cf3 .PI/2 && AnglesQ(B)>=\cf5 Math\cf3 .PI/2) || (AnglesQ(C)>=\cf5 Math\cf3 .PI/2 && AnglesQ(D)>=\cf5 Math\cf3 .PI/2))) \cf1 return\cf3  \cf1 true\cf3 ;\par
+            \cf1 if\cf3  ((\cf1 this\cf3 .DAlen * \cf1 this\cf3 .BClen == \cf5 Math\cf3 .Abs(\cf1 this\cf3 .AD.X * \cf1 this\cf3 .BC.X + \cf1 this\cf3 .AD.Y * \cf1 this\cf3 .BC.Y)) && (\cf1 this\cf3 .DAlen != \cf1 this\cf3 .BClen)&&\par
+                ((AnglesQ(B) >= \cf5 Math\cf3 .PI / 2 && AnglesQ(C) >= \cf5 Math\cf3 .PI / 2) || (AnglesQ(A) >= \cf5 Math\cf3 .PI / 2 && AnglesQ(D) >= \cf5 Math\cf3 .PI / 2))) \cf1 return\cf3  \cf1 true\cf3 ;\par
+            \cf1 else\cf3  \cf1 return\cf3  \cf1 false\cf3 ;\par
+\par
+        \}\par
+        \cf4 //--------------------\cf3\par
+        \cf1 public\cf3  \cf1 bool\cf3  IsRectangle()\par
+        \{\par
+            \cf1 if\cf3  (\cf1 this\cf3 .IsSquare()) \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \cf1 else\cf3\par
+            \{\par
+                \cf1 if\cf3  (AnglesQ(\cf1 this\cf3 .A) == AnglesQ(\cf1 this\cf3 .B) && AnglesQ(\cf1 this\cf3 .B) == AnglesQ(\cf1 this\cf3 .C) && AnglesQ(\cf1 this\cf3 .C) == AnglesQ(\cf1 this\cf3 .D)) \cf1 return\cf3  \cf1 true\cf3 ;\par
+                \cf1 else\cf3  \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \}\par
+        \}\par
+        \cf4 //--------------------\cf3\par
+        \cf1 public\cf3  \cf1 bool\cf3  IsSquare()\par
+        \{\par
+            \cf1 if\cf3  (AnglesQ(\cf1 this\cf3 .A) == AnglesQ(\cf1 this\cf3 .B) && AnglesQ(\cf1 this\cf3 .B) == AnglesQ(\cf1 this\cf3 .C) && AnglesQ(\cf1 this\cf3 .C) == AnglesQ(\cf1 this\cf3 .D) && (\cf1 this\cf3 .ABlen == \cf1 this\cf3 .BClen && \cf1 this\cf3 .BClen == \cf1 this\cf3 .CDlen && \cf1 this\cf3 .CDlen == \cf1 this\cf3 .DAlen)) \cf1 return\cf3  \cf1 true\cf3 ;\par
+            \cf1 else\cf3  \cf1 return\cf3  \cf1 false\cf3 ;\par
+        \}\par
+        \cf4 //--------------------\cf3\par
+        \cf1 public\cf3  \cf1 bool\cf3  IsParallelogram()\par
+        \{\par
+            \cf1 if\cf3  (\cf1 this\cf3 .IsSquare()) \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \cf1 else\cf3  \cf1 if\cf3  (\cf1 this\cf3 .IsRectangle()) \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \cf1 else\cf3  \cf1 if\cf3  (\cf1 this\cf3 .IsRhombus()) \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \cf1 else\cf3\par
+            \{\par
+                \cf4 //AC\cf3\par
+                \cf1 double\cf3  acxm, acym;\par
+                \cf1 double\cf3  acx = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .A.X - \cf1 this\cf3 .C.X) / 2;\par
+                \cf1 double\cf3  acy = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .A.Y - \cf1 this\cf3 .C.Y) / 2;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .A.X < \cf1 this\cf3 .C.X) acxm = \cf1 this\cf3 .A.X + acx;\par
+                \cf1 else\cf3  acxm = \cf1 this\cf3 .C.X + acx;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .A.Y < \cf1 this\cf3 .C.Y) acym = \cf1 this\cf3 .A.Y + acy;\par
+                \cf1 else\cf3  acym = \cf1 this\cf3 .C.Y + acy;\par
+                \cf4 //BD\cf3\par
+                \cf1 double\cf3  bdxm, bdym;\par
+                \cf1 double\cf3  bdx = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .B.X - \cf1 this\cf3 .D.X) / 2;\par
+                \cf1 double\cf3  bdy = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .D.Y - \cf1 this\cf3 .B.Y) / 2;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .B.X < \cf1 this\cf3 .D.X) bdxm = \cf1 this\cf3 .B.X + bdx;\par
+                \cf1 else\cf3  bdxm = \cf1 this\cf3 .D.X + bdx;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .B.Y < \cf1 this\cf3 .D.Y) bdym = \cf1 this\cf3 .B.Y + bdy;\par
+                \cf1 else\cf3  bdym = \cf1 this\cf3 .D.Y + bdy;\par
+                \cf1 if\cf3  ((bdxm == acxm) && (bdym == acym) && (\cf1 this\cf3 .ABlen == \cf1 this\cf3 .CDlen) && (\cf1 this\cf3 .DAlen == \cf1 this\cf3 .BClen) && (AnglesQ(A) == AnglesQ(C))) \cf1 return\cf3  \cf1 true\cf3 ;\par
+                \cf1 else\cf3  \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \}\par
+        \}\par
+        \cf4 //--------------------\cf3\par
+        \cf1 public\cf3  \cf1 bool\cf3  IsRhombus()\par
+        \{\par
+            \cf1 if\cf3  (\cf1 this\cf3 .IsSquare()) \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \cf1 else\cf3\par
+            \{\par
+                \cf4 //AC\cf3\par
+                \cf1 double\cf3  acxm, acym;\par
+                \cf1 double\cf3  acx = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .A.X - \cf1 this\cf3 .C.X) / 2;\par
+                \cf1 double\cf3  acy = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .A.Y - \cf1 this\cf3 .C.Y) / 2;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .A.X < \cf1 this\cf3 .C.X) acxm = \cf1 this\cf3 .A.X + acx;\par
+                \cf1 else\cf3  acxm = \cf1 this\cf3 .C.X + acx;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .A.Y < \cf1 this\cf3 .C.Y) acym = \cf1 this\cf3 .A.Y + acy;\par
+                \cf1 else\cf3  acym = \cf1 this\cf3 .C.Y + acy;\par
+                \cf4 //BD\cf3\par
+                \cf1 double\cf3  bdxm, bdym;\par
+                \cf1 double\cf3  bdx = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .B.X - \cf1 this\cf3 .D.X) / 2;\par
+                \cf1 double\cf3  bdy = \cf5 Math\cf3 .Abs(\cf1 this\cf3 .D.Y - \cf1 this\cf3 .B.Y) / 2;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .B.X < \cf1 this\cf3 .D.X) bdxm = \cf1 this\cf3 .B.X + bdx;\par
+                \cf1 else\cf3  bdxm = \cf1 this\cf3 .D.X + bdx;\par
+                \cf1 if\cf3  (\cf1 this\cf3 .B.Y < \cf1 this\cf3 .D.Y) bdym = \cf1 this\cf3 .B.Y + bdy;\par
+                \cf1 else\cf3  bdym = \cf1 this\cf3 .D.Y + bdy;\par
+\par
+                \cf1 if\cf3  ((bdxm == acxm) && (bdym == acym) && (\cf1 this\cf3 .ABlen == \cf1 this\cf3 .CDlen) && (\cf1 this\cf3 .DAlen == \cf1 this\cf3 .BClen) && (AnglesQ(A) == AnglesQ(C)) && ((\cf1 this\cf3 .A.X - \cf1 this\cf3 .C.X) * (\cf1 this\cf3 .B.X - \cf1 this\cf3 .D.X) + (\cf1 this\cf3 .A.Y - \cf1 this\cf3 .C.Y) * (\cf1 this\cf3 .B.Y - \cf1 this\cf3 .D.Y) == 0)) \cf1 return\cf3  \cf1 true\cf3 ;\par
+                \cf1 else\cf3  \cf1 return\cf3  \cf1 false\cf3 ;\par
+            \}\par
+        \}\par
+        \cf4 //--------------------\cf3\par
+        \cf1 public\cf3  \cf1 double\cf3  AreaQ()\par
+        \{\par
+            \cf1 return\cf3  0.5 * \cf1 this\cf3 .DAlen * \cf1 this\cf3 .CDlen * \cf5 Math\cf3 .Sin(AnglesQ(\cf1 this\cf3 .D)) + 0.5 * \cf1 this\cf3 .ABlen * \cf1 this\cf3 .BClen * \cf5 Math\cf3 .Sin(AnglesQ(\cf1 this\cf3 .B));\par
+        \}\par
+    \}\par
+\par
+\cf4 //----------------------------------------------------------------------------------------------------------\cf3\par
+\par
+    \cf1 class\cf3  \cf5 Program\cf3\par
+    \{\par
+        \cf1 static\cf3  \cf1 void\cf3  Main(\cf1 string\cf3 [] args)\par
+        \{\par
+            \cf5 Quadrangle\cf3 [] f = \cf1 new\cf3  \cf5 Quadrangle\cf3 [4];\par
+            \cf1 for\cf3  (\cf1 int\cf3  i = 0; i < 4; i++)\par
+            \{\par
+                \cf5 Console\cf3 .WriteLine(\cf6 "    #\{0\}"\cf3 , i + 1);\par
+                f[i] = \cf1 new\cf3  \cf5 Quadrangle\cf3 ();\par
+                \cf1 if\cf3  (f[i].IsSquare()) \cf5 Console\cf3 .WriteLine(\cf6 "    This is a square."\cf3 );\par
+                \cf1 else\cf3  \cf1 if\cf3  (f[i].IsRectangle()) \cf5 Console\cf3 .WriteLine(\cf6 "    This is a rectangle."\cf3 );\par
+                \cf1 else\cf3  \cf1 if\cf3  (f[i].IsRhombus()) \cf5 Console\cf3 .WriteLine(\cf6 "    This is a rhombus."\cf3 );\par
+                \cf1 else\cf3  \cf1 if\cf3  (f[i].IsTrapezoid()) \cf5 Console\cf3 .WriteLine(\cf6 "    This is a trapezoid."\cf3 );\par
+                \cf1 else\cf3  \cf1 if\cf3  (f[i].IsParallelogram()) \cf5 Console\cf3 .WriteLine(\cf6 "    This is a parallelogram."\cf3 );\par
+                \cf1 else\cf3  \cf5 Console\cf3 .WriteLine(\cf6 "    This is a quadrangle."\cf3 );\par
+                \cf5 Console\cf3 .WriteLine(\cf6 "    The area is: \{0\}\\n"\cf3 ,f[i].AreaQ());\par
+            \}\par
+        \}\par
+    \}\par
+\}\par
+\cf1\par
+}
+ 

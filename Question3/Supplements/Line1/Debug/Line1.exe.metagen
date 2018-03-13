@@ -1,0 +1,28 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly Line1, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class Point: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, Int32): PrivateScope, Public, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, SpecialName, RTSpecialName
+  Properties:
+    Int32 Y    'get set' : 
+    Int32 X    'get set' : 
+  Methods:
+    get_X(): PrivateScope, Public, SpecialName
+    set_X(Int32): PrivateScope, Public, SpecialName
+    get_Y(): PrivateScope, Public, SpecialName
+    set_Y(Int32): PrivateScope, Public, SpecialName
+    ToString(): PrivateScope, Public, Virtual
+Class Line1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Point
+    Void .ctor(Int32, Int32, Double): PrivateScope, Public, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    setSlope(Double): PrivateScope, Public
+    getSlope(): PrivateScope, Public

@@ -1,0 +1,9 @@
+C:\ProjectVS\Question4\Question4\bin\Debug\Question4.exe.config
+C:\ProjectVS\Question4\Question4\bin\Debug\Question4.exe
+C:\ProjectVS\Question4\Question4\bin\Debug\Question4.pdb
+C:\ProjectVS\Question4\Question4\obj\Debug\Question4.csprojResolveAssemblyReference.cache
+C:\ProjectVS\Question4\Question4\obj\Debug\Question4.Form1.resources
+C:\ProjectVS\Question4\Question4\obj\Debug\Question4.Properties.Resources.resources
+C:\ProjectVS\Question4\Question4\obj\Debug\Question4.csproj.GenerateResource.Cache
+C:\ProjectVS\Question4\Question4\obj\Debug\Question4.exe
+C:\ProjectVS\Question4\Question4\obj\Debug\Question4.pdb
